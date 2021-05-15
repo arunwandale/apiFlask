@@ -1,0 +1,16 @@
+
+<h1>YOUR DETAILS</h1>
+<table border = 5 bgcolor="#C0C0C0">
+
+    {% for users in userDetails %}
+    <tr>
+        <td>  {{users[2]}}</td>
+
+        <td > {{users[0]}}</td>
+
+        <td > {{users[1]}}</td>
+
+    </tr>
+
+    {% endfor %}
+</table>
