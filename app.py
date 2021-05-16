@@ -1,7 +1,8 @@
 from flask import Flask,render_template,request
 from flask_mysqldb import MySQL
+from flask_ngrok import run_with_ngrok
 app = Flask(__name__)
-
+run_with_ngrok(app)
 
 app.config['MYSQL_HOST'] = 'localhost'
 app.config['MYSQL_USER'] = 'root'
@@ -23,6 +24,7 @@ def index():
         return 'successfull'
     return render_template("index.html")
 
+
 @app.route('/users', methods = ["POST"])
 def users():
     cur = mysql.connection.cursor()
@@ -32,4 +34,4 @@ def users():
         return render_template('details.html',userDetails = userDetails)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
